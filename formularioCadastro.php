@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include './conexao/conectMysqli.php';
 
 if (isset($_GET['id'])) {
@@ -35,8 +37,16 @@ if (isset($_GET['id'])) {
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <div class="container" style="background: #ccccff" >
-            <h1>Formulário de cadastro</h1>
+        <div class="container" style="background: #ccccff; margin-top: 100px; padding-bottom: 20px" >
+            <div>
+                <h1>Formulário de cadastro</h1>
+                <h6><a href="sair.php"><span class="btn btn-danger text-center" style="float: right">Sair</span></a></h6>
+            </div>
+            <div>
+                <?php
+                echo '<br>';
+                ?>
+            </div>
             <form method="POST" action="Insert.php">
                 <input type="hidden" id="Acao" name="Acao"  value="<?php echo $Acao; ?>">
                 <input type="hidden" id="Id" name="Id" value="<?php echo $Id; ?>">
